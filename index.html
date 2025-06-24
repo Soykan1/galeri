@@ -253,6 +253,28 @@
     color: #27ae60;
   }
 
+  /* Satın Alma Butonu */
+  #buyBtn {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 14px 30px;
+    background: #27ae60;
+    color: white;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+  }
+  #buyBtn:hover,
+  #buyBtn:focus {
+    background: #2ecc71;
+    outline: none;
+  }
+
   /* Konum */
   iframe {
     border-radius: 15px;
@@ -330,7 +352,8 @@
       data-name="C Serisi C 180 Komp. BlueEfficiency Luxury"
       data-img="https://i0.shbdn.com/photos/70/20/98/x5_12537020987ps.jpg"
       data-desc="Konforlu ve lüks C Serisi. Yakıt verimliliği yüksek."
-      data-price="₺850,000"
+      data-price="865.000"
+      data-buy-link="https://www.sahibinden.com/ilan/vasita-otomobil-mercedes-benz-sorunsuz-bakimli-c180-komprosor-blueefficiency-luxury-1253702098/detay"
       onclick="openModal(this)">
       <img src="https://i0.shbdn.com/photos/70/20/98/x5_12537020987ps.jpg" alt="C Serisi C 180 Komp." />
       <div class="car-info">
@@ -345,7 +368,8 @@
       data-name="Clio 1.5 dCi SportTourer Touch"
       data-img="https://i0.shbdn.com/photos/83/27/23/x5_12518327235i5.jpg"
       data-desc="SportTourer Touch modeli, yakıt tasarrufu sağlar."
-      data-price="₺550,000"
+      data-price="867.500"
+      data-buy-link="https://www.sahibinden.com/ilan/vasita-otomobil-renault-2019-clio-sporttourer-dizel-otomatik-lansman-renk-1251832723/detay"
       onclick="openModal(this)">
       <img src="https://i0.shbdn.com/photos/83/27/23/x5_12518327235i5.jpg" alt="Clio 1.5 dCi SportTourer Touch" />
       <div class="car-info">
@@ -360,7 +384,8 @@
       data-name="Megane 1.5 Blue DCI Touch"
       data-img="https://i0.shbdn.com/photos/85/63/11/x5_1231856311pc4.jpg"
       data-desc="Güvenli ve şık Megane modeli."
-      data-price="₺570,000"
+      data-price="₺1.500.000"
+      data-buy-link="https://www.sahibinden.com/ilan/vasita-otomobil-renault-2019-megane-4-dizel-otomatik-touch-1231856311/detay"
       onclick="openModal(this)">
       <img src="https://i0.shbdn.com/photos/85/63/11/x5_1231856311pc4.jpg" alt="Megane 1.5 Blue DCI Touch" />
       <div class="car-info">
@@ -375,7 +400,8 @@
       data-name="5 Serisi 525d xDrive Premium"
       data-img="https://i0.shbdn.com/photos/52/35/49/x5_1237523549suc.jpg"
       data-desc="Premium segment 5 Serisi, üstün performans."
-      data-price="₺1,250,000"
+      data-price="₺1.439.000"
+      data-buy-link="https://www.sahibinden.com/ilan/vasita-otomobil-bmw-temiz-bakimli-5,25xdrive-k.kart-gecerli-takas-olur-1237523549/detay"
       onclick="openModal(this)">
       <img src="https://i0.shbdn.com/photos/52/35/49/x5_1237523549suc.jpg" alt="5 Serisi 525d xDrive Premium" />
       <div class="car-info">
@@ -388,15 +414,16 @@
     <article class="car" tabindex="0"
       data-brand="ford"
       data-name="Xenon 4x2"
-      data-img="https://i0.shbdn.com/photos/49/93/32/1244499332rnc.jpg"
+      data-img="https://www.sahibinden.com/ilan/vasita-arazi-suv-pickup-tata-takas-olur-k.kart-12-taksit-imkani-1244499332/detay"
       data-desc="Güçlü ve dayanıklı Xenon modeli."
-      data-price="₺900,000"
+      data-price="₺349.999"
+      data-buy-link="https://www.sahibinden.com/ilan/vasita-arazi-suv-pickup-tata-takas-olur-k.kart-12-taksit-imkani-1244499332/detay"
       onclick="openModal(this)">
       <img src="https://i0.shbdn.com/photos/49/93/32/1244499332rnc.jpg" alt="Xenon 4x2" />
       <div class="car-info">
         <h3>Xenon 4x2</h3>
         <p>Güçlü ve dayanıklı Xenon modeli.</p>
-        <p class="price">₺900,000</p>
+        <p class="price">₺349.999</p>
       </div>
     </article>
   </div>
@@ -438,6 +465,7 @@
     <img src="" alt="" id="modalImage" />
     <p id="modalDesc"></p>
     <p class="price" id="modalPrice"></p>
+    <a href="#" id="buyBtn" target="_blank" rel="noopener noreferrer">Satın Al</a>
   </div>
 </div>
 
@@ -488,6 +516,7 @@
   const modalImage = document.getElementById('modalImage');
   const modalDesc = document.getElementById('modalDesc');
   const modalPrice = document.getElementById('modalPrice');
+  const buyBtn = document.getElementById('buyBtn');
 
   function openModal(carElem) {
     modalTitle.textContent = carElem.getAttribute('data-name');
@@ -495,6 +524,10 @@
     modalImage.alt = carElem.getAttribute('data-name');
     modalDesc.textContent = carElem.getAttribute('data-desc');
     modalPrice.textContent = carElem.getAttribute('data-price');
+
+    // Satın al butonunun linkini ayarla
+    buyBtn.href = carElem.getAttribute('data-buy-link');
+
     modal.classList.add('show');
     modal.focus();
   }
