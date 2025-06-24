@@ -569,18 +569,27 @@ GALERİ POLAT" tabindex="0">
 </body>
 </html>
 
-<!-- Sayfanın en altına ekle -->
+<!-- ---------- EN ALTTA EKLENECEK KISIM ---------- -->
+
+<!-- Mobil footer -->
 <footer id="mobileFooter">
   <nav>
-    <button onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Sayfa başına dön">🏠</button>
-    <button onclick="document.getElementById('cars').scrollIntoView({behavior:'smooth'})" aria-label="Araçlar bölümüne git">🚗</button>
-    <button onclick="window.location.href='tel:+905335070688'" aria-label="Telefonla ara">📞</button>
-    <button onclick="window.location.href='mailto:info@galeripolat.com'" aria-label="Email gönder">✉️</button>
+    <button onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Sayfa başına dön">Anasayfa</button>
+    <button onclick="document.getElementById('cars').scrollIntoView({behavior:'smooth'})" aria-label="Araçlar bölümüne git">Araçlar</button>
+    <button onclick="window.location.href='tel:+905335070688'" aria-label="Telefonla ara">Araçla</button>
+    <button onclick="window.location.href='mailto:info@galeripolat.com'" aria-label="Email gönder">Email</button>
   </nav>
   <p>Mobil destek aktiftir. © 2025 Galeri Polat</p>
 </footer>
 
 <style>
+  /* Üst header ve menüyü mobilde gizleme */
+  @media (max-width: 768px) {
+    header {
+      display: none !important;
+    }
+  }
+
   /* Mobil footer bar */
   #mobileFooter {
     display: none; /* Masaüstünde gizli */
@@ -610,11 +619,13 @@ GALERİ POLAT" tabindex="0">
       background: transparent;
       border: none;
       color: white;
-      font-size: 1.8rem;
+      font-size: 1.05rem;
       cursor: pointer;
       padding: 6px 8px;
       border-radius: 6px;
       transition: background-color 0.25s ease;
+      font-weight: 600;
+      letter-spacing: 0.03em;
     }
     #mobileFooter nav button:hover,
     #mobileFooter nav button:focus {
