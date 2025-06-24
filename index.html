@@ -334,7 +334,7 @@
 <!-- HERO -->
 <section id="home" aria-label="HOŞGELDİNİZ 
 GALERİ POLAT" tabindex="0">
-  HOŞGELDİNİZ 2. ELDE KALİTENİN ADRESİ  GALERİ POLAT
+  HOŞGELDİNİZ 2. ELDE KALİTENİN ADRESİ 
 </section>
 
 <!-- ARAÇLAR -->
@@ -455,8 +455,8 @@ GALERİ POLAT" tabindex="0">
   <div style="max-width:700px; margin: 0 auto; font-size: 1.2rem; line-height: 1.7;">
     <p>İletişim için aşağıdaki bilgilerden bize ulaşabilirsiniz:</p>
     <p><strong>Telefon:</strong> +90 0533 507 06 88</p>
-    <p><strong>Email:</strong> galeripolat@hotmail.com</p>
-    <p><strong>Adres:</strong> Soğanlı, 112. Sk. No:2, 16190 Osmangazi̇/Bursa</p>
+    <p><strong>Email:</strong> info@galeripolat.com</p>
+    <p><strong>Adres:</strong> Soğanlı, 106. Sk. No:6, 16190 Osmangazi̇/Bursa</p>
   </div>
 </section>
 
@@ -569,3 +569,62 @@ GALERİ POLAT" tabindex="0">
 </body>
 </html>
 
+<!-- Sayfanın en altına ekle -->
+<footer id="mobileFooter">
+  <nav>
+    <button onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Sayfa başına dön">🏠</button>
+    <button onclick="document.getElementById('cars').scrollIntoView({behavior:'smooth'})" aria-label="Araçlar bölümüne git">🚗</button>
+    <button onclick="window.location.href='tel:+905335070688'" aria-label="Telefonla ara">📞</button>
+    <button onclick="window.location.href='mailto:info@galeripolat.com'" aria-label="Email gönder">✉️</button>
+  </nav>
+  <p>Mobil destek aktiftir. © 2025 Galeri Polat</p>
+</footer>
+
+<style>
+  /* Mobil footer bar */
+  #mobileFooter {
+    display: none; /* Masaüstünde gizli */
+  }
+  @media (max-width: 768px) {
+    #mobileFooter {
+      display: block;
+      position: fixed;
+      bottom: 0;
+      left: 0; right: 0;
+      background: #0984e3;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      padding: 8px 10px 6px;
+      box-shadow: 0 -3px 8px rgba(0,0,0,0.2);
+      z-index: 15000;
+      user-select: none;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    #mobileFooter nav {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 4px;
+    }
+    #mobileFooter nav button {
+      background: transparent;
+      border: none;
+      color: white;
+      font-size: 1.8rem;
+      cursor: pointer;
+      padding: 6px 8px;
+      border-radius: 6px;
+      transition: background-color 0.25s ease;
+    }
+    #mobileFooter nav button:hover,
+    #mobileFooter nav button:focus {
+      background: rgba(255, 255, 255, 0.2);
+      outline: none;
+    }
+    #mobileFooter p {
+      font-size: 0.8rem;
+      margin: 0;
+      user-select: text;
+    }
+  }
+</style>
