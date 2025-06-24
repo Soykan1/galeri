@@ -327,6 +327,7 @@
       <li><a href="#cars">ARAÇLAR</a></li>
       <li><a href="#location">KONUM</a></li>
       <li><a href="#contact">İLETİŞİM</a></li>
+      <li><a href="#>Hakkımızda">Hakkımızda</a></li>
     </ul>
   </nav>
 </header>
@@ -334,7 +335,7 @@
 <!-- HERO -->
 <section id="home" aria-label="HOŞGELDİNİZ 
 GALERİ POLAT" tabindex="0">
-  HOŞGELDİNİZ 2. ELDE KALİTENİN ADRESİ 
+  HOŞGELDİNİZ 2. ELDE KALİTENİN ADRESİ GALERİ POLAT 
 </section>
 
 <!-- ARAÇLAR -->
@@ -562,61 +563,54 @@ GALERİ POLAT" tabindex="0">
 
 <!-- ---------- EN ALTTA EKLENECEK KISIM ---------- -->
 
-<!-- Mobil footer -->
+<!-- Mobil Footer -->
 <footer id="mobileFooter">
   <nav>
-    <button onclick="window.scrollTo({top:0, behavior:'smooth'})" aria-label="Sayfa başına dön">Anasayfa</button>
-    <button onclick="document.getElementById('cars').scrollIntoView({behavior:'smooth'})" aria-label="Araçlar bölümüne git">Araçlar</button>
-    <button onclick="window.location.href='tel:+905335070688'" aria-label="Telefonla ara">Araçla</button>
-    <button onclick="window.location.href='mailto:info@galeripolat.com'" aria-label="Email gönder">Email</button>
+    <button onclick="scrollToTop()" aria-label="Sayfa başına dön">Ana Sayfa</button>
+    <button onclick="scrollToSection('cars')" aria-label="Araçlar bölümüne git">Araçlar</button>
+    <button onclick="callNow()" aria-label="Telefonla ara">Ara</button>
+    <button onclick="sendEmail()" aria-label="Email gönder">E-posta</button>
   </nav>
   <p>Mobil destek aktiftir. © 2025 Galeri Polat</p>
 </footer>
 
+<!-- Mobil Footer Style -->
 <style>
-  /* Üst header ve menüyü mobilde gizleme */
   @media (max-width: 768px) {
     header {
       display: none !important;
     }
-  }
-
-  /* Mobil footer bar */
-  #mobileFooter {
-    display: none; /* Masaüstünde gizli */
-  }
-  @media (max-width: 768px) {
     #mobileFooter {
       display: block;
       position: fixed;
       bottom: 0;
-      left: 0; right: 0;
+      left: 0;
+      right: 0;
       background: #0984e3;
       color: white;
       font-weight: bold;
       text-align: center;
-      padding: 8px 10px 6px;
+      padding: 10px 0 6px;
       box-shadow: 0 -3px 8px rgba(0,0,0,0.2);
-      z-index: 15000;
-      user-select: none;
+      z-index: 10000;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     #mobileFooter nav {
       display: flex;
       justify-content: space-around;
-      margin-bottom: 4px;
+      align-items: center;
+      margin-bottom: 5px;
     }
     #mobileFooter nav button {
-      background: transparent;
+      background: none;
       border: none;
       color: white;
-      font-size: 1.05rem;
-      cursor: pointer;
-      padding: 6px 8px;
-      border-radius: 6px;
-      transition: background-color 0.25s ease;
+      font-size: 1rem;
       font-weight: 600;
-      letter-spacing: 0.03em;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: background 0.3s;
+      cursor: pointer;
     }
     #mobileFooter nav button:hover,
     #mobileFooter nav button:focus {
@@ -624,9 +618,44 @@ GALERİ POLAT" tabindex="0">
       outline: none;
     }
     #mobileFooter p {
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       margin: 0;
-      user-select: text;
-    }   
+    }
+  }
+
+  @media (min-width: 769px) {
+    #mobileFooter {
+      display: none;
+    }
   }
 </style>
+
+<!-- Mobil Footer İşlevleri -->
+<script>
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function scrollToSection(id) {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  function callNow() {
+    window.location.href = 'tel:+905335070688';
+  }
+
+  function sendEmail() {
+    window.location.href = 'mailto:galeripolat@hotmail.com';
+  }
+</script>
+
+<!-- HAKKIMIZDA -->
+<section id="about" style="background-color: #f1f1f1; padding: 60px 20px; text-align: center;">
+  <h2 style="font-size: 2rem; margin-bottom: 20px; color: #0984e3;">Hakkımızda</h2>
+  <p style="max-width: 800px; margin: 0 auto; font-size: 1rem; color: #333;">
+    GALERİ POLAT GALERİ
+  </p>
+</section>
