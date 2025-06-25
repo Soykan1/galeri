@@ -4,8 +4,17 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Galeri Polat</title>
+<head>
+  <meta charset="UTF-8">
+  <title>Galeri Polat</title>
+  <link rel="icon" type="image/png" href="https://image5.sahibinden.com/stores/logos/95/03/97/046f5d688a27e48cc675da3dfc23943a1f16bbc1.png" />
+  <!-- diğer kodlar -->
+</head>
+
+
+
 <style>
-    
+
   * {
     margin: 0; padding: 0; box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -332,10 +341,8 @@
   </nav>
 </header>
 
-<!-- HERO -->
-<section id="home" aria-label="HOŞGELDİNİZ 
-GALERİ POLAT" tabindex="0">
-  HOŞGELDİNİZ 2. ELDE KALİTENİN ADRESİ GALERİ POLAT 
+<section id="home" aria-label="HOŞGELDİNİZ GALERİ POLAT" tabindex="0">
+  <span class="hero-text">HOŞGELDİNİZ – 2. ELDE KALİTENİN ADRESİ GALERİ POLAT</span>
 </section>
 
 <!-- ARAÇLAR -->
@@ -418,6 +425,7 @@ GALERİ POLAT" tabindex="0">
       <div class="car-info">
         <h3>Xenon 4x2</h3>
         <p>Güçlü ve dayanıklı Xenon modeli.</p>
+        <p class="price">₺349.999</p>
       </div>
     </article>
   </div>
@@ -541,7 +549,7 @@ GALERİ POLAT" tabindex="0">
       }
     });
   }, {threshold: 0.2});
-
+  
   cars.forEach(car => observer.observe(car));
 
   // Modal ESC tuşu ile kapatma
@@ -658,3 +666,130 @@ GALERİ POLAT" tabindex="0">
     2010 yılında başladığımız 2. El motorlu taşıtlar satış serüvenine siz değerli müşterilerimize hizmet sunmaktayız. Firmamız kurumsal araç tedarikçilerimizle birlikte 2. el oto satışında kalite ve güveni ön planda tutmayı misyon edinmiş olup, satış işlemlerini vakit kaybetmeden anlaşmalı noter eşliğinde tamamlayıp; sigorta, ekspertiz, bakım ve ekipman desteği konusunda alternatif çözümlerimizi sizlerle paylaşmak adına showroom'umuza bekleriz.
   </p>
 </section>
+
+
+<!-- HTML -->
+<footer class="footer-text">
+  <p>2025 GALERİ POLAT © TÜM HAKLAR SAKLIDIR</p>
+</footer>
+
+
+<!-- Dil Seçici -->
+<div id="languageSelector" style="position:fixed; bottom:10px; right:10px; background:#0984e3; color:white; padding:8px 12px; border-radius:8px; font-family:sans-serif; z-index:10000;">
+  <label for="langSelect" style="margin-right:8px; font-weight:bold;">Dil / Language:</label>
+  <select id="langSelect" aria-label="Dil seçimi">
+    <option value="tr">Türkçe</option>
+    <option value="en">English</option>
+  </select>
+</div>
+
+<script>
+  const translations = {
+    tr: {
+      homeHero: "HOŞGELDİNİZ – 2. ELDE KALİTENİN ADRESİ GALERİ POLAT",
+      sectionCars: "Araçlar",
+      sectionLocation: "Konumumuz",
+      sectionContact: "İletişim",
+      sectionAbout: "Hakkımızda",
+      navHome: "ANA MENÜ",
+      navCars: "ARAÇLAR",
+      navLocation: "KONUM",
+      navContact: "İLETİŞİM",
+      navAbout: "Hakkımızda",
+      contactPhone: "Telefon:",
+      contactEmail: "Email:",
+      contactAddress: "Adres:",
+      modalBuy: "Satın Al",
+      footerText: "2025 GALERİ POLAT © TÜM HAKLAR SAKLIDIR",
+      mobileFooterHome: "Ana Sayfa",
+      mobileFooterCars: "Araçlar",
+      mobileFooterCall: "Ara",
+      mobileFooterEmail: "E-posta",
+      aboutText: "2010 yılında başladığımız 2. El motorlu taşıtlar satış serüvenine siz değerli müşterilerimize hizmet sunmaktayız. Firmamız kurumsal araç tedarikçilerimizle birlikte 2. el oto satışında kalite ve güveni ön planda tutmayı misyon edinmiş olup, satış işlemlerini vakit kaybetmeden anlaşmalı noter eşliğinde tamamlayıp; sigorta, ekspertiz, bakım ve ekipman desteği konusunda alternatif çözümlerimizi sizlerle paylaşmak adına showroom'umuza bekleriz."
+    },
+    en: {
+      homeHero: "WELCOME – THE ADDRESS OF QUALITY IN USED VEHICLES GALERI POLAT",
+      sectionCars: "Cars",
+      sectionLocation: "Our Location",
+      sectionContact: "Contact",
+      sectionAbout: "About Us",
+      navHome: "HOME",
+      navCars: "CARS",
+      navLocation: "LOCATION",
+      navContact: "CONTACT",
+      navAbout: "About Us",
+      contactPhone: "Phone:",
+      contactEmail: "Email:",
+      contactAddress: "Address:",
+      modalBuy: "Buy Now",
+      footerText: "© 2025 GALERI POLAT. ALL RIGHTS RESERVED.",
+      mobileFooterHome: "Home",
+      mobileFooterCars: "Cars",
+      mobileFooterCall: "Call",
+      mobileFooterEmail: "Email",
+      aboutText: "Since 2010, we have been providing services to our valued customers in the used motor vehicles sales business. Our company, together with our corporate vehicle suppliers, has adopted quality and trust as a priority in used car sales, completes sales quickly with contracted notaries, and invites you to our showroom to share alternative solutions regarding insurance, expertise, maintenance, and equipment support."
+    }
+  };
+
+  // Sayfadaki metinleri id ve data attribute ile ilişkilendiriyoruz:
+  function setLanguage(lang) {
+    const t = translations[lang];
+    if (!t) return;
+
+    // Ana menü linkleri
+    document.querySelector('nav ul li:nth-child(1) a').textContent = t.navHome;
+    document.querySelector('nav ul li:nth-child(2) a').textContent = t.navCars;
+    document.querySelector('nav ul li:nth-child(3) a').textContent = t.navLocation;
+    document.querySelector('nav ul li:nth-child(4) a').textContent = t.navContact;
+    document.querySelector('nav ul li:nth-child(5) a').textContent = t.navAbout;
+
+    // Hero alanı
+    const heroText = document.querySelector('.hero-text');
+    if (heroText) heroText.textContent = t.homeHero;
+
+    // Bölüm başlıkları
+    const sectionTitles = document.querySelectorAll('.section-title');
+    if(sectionTitles.length >= 4) {
+      sectionTitles[0].textContent = t.sectionCars;
+      sectionTitles[1].textContent = t.sectionLocation;
+      sectionTitles[2].textContent = t.sectionContact;
+      sectionTitles[3].textContent = t.sectionAbout;
+    }
+
+    // İletişim alanı etiketleri
+    const contactDiv = document.querySelector('#contact div');
+    if (contactDiv) {
+      contactDiv.querySelectorAll('p')[1].innerHTML = `<strong>${t.contactPhone}</strong> +90 0533 507 06 88`;
+      contactDiv.querySelectorAll('p')[2].innerHTML = `<strong>${t.contactEmail}</strong> galeripolat@hotmail.com`;
+      contactDiv.querySelectorAll('p')[3].innerHTML = `<strong>${t.contactAddress}</strong> Soğanlı, 106. Sk. No:6, 16190 Osmangazi̇/Bursa`;
+    }
+
+    // Modal Satın Al butonu
+    document.getElementById('buyBtn').textContent = t.modalBuy;
+
+    // Footer
+    document.querySelector('.footer-text p').textContent = t.footerText;
+
+    // Mobil footer buttonları
+    const mobileNavBtns = document.querySelectorAll('#mobileFooter nav button');
+    if(mobileNavBtns.length === 4){
+      mobileNavBtns[0].textContent = t.mobileFooterHome;
+      mobileNavBtns[1].textContent = t.mobileFooterCars;
+      mobileNavBtns[2].textContent = t.mobileFooterCall;
+      mobileNavBtns[3].textContent = t.mobileFooterEmail;
+    }
+
+    // Hakkımızda metni
+    const aboutSection = document.querySelector('#about p');
+    if(aboutSection) aboutSection.textContent = t.aboutText;
+  }
+
+  // Dil seçimi yapıldığında çalışır
+  document.getElementById('langSelect').addEventListener('change', function(){
+    setLanguage(this.value);
+  });
+
+  // Sayfa ilk açıldığında varsayılan Türkçe olarak ayarla
+  setLanguage('tr');
+</script>
+
